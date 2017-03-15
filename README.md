@@ -1,12 +1,18 @@
-# landscape-0
+# landscapes
 
-landscape-0.
+*work in progress*
 
-Built with [A-Frame](https://aframe.io).
+a series of WebVR installation artworks by @nickwarner
 
-## Setup
+## Run all
 
 ```sh
 npm install
 npm run start
+```
+
+# Deploying all to Github Pages
+
+```sh
+npm run deploy
 ```
