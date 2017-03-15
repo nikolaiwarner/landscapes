@@ -4,10 +4,15 @@
 
 a series of WebVR installation artworks by @nickwarner
 
-## Setup
+## Run all
 
 ```sh
-cd landscape-0
 npm install
 npm run start
+```
+
+# Deploying all to Github Pages
+
+```sh
+npm run deploy
 ```
