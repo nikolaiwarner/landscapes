@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>experiment-0 by nickwarner</title>
+    <meta name="description" content="experiment-0">
+    <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/hawksley/Threex.chromakey/35df824b/threex.chromakey.js"></script>
+    <!-- <script src="https://unpkg.com/aframe-physics-system@^1.2.x/dist/aframe-physics-system.min.js" data-angle="aframe-physics-system"></script> -->
+
+    <script>
+      AFRAME.registerShader('chromaKeyMaterial', {
+        schema: {
+          url: {default: ''},
+          keyColor: {default: 0xd432}
+        },
+        init: function (data) {
+          console.log(data)
+          this.material = new THREEx.ChromaKeyMaterial(data.url, data.keyColor);
+          this.update(data);
+        },
+        update: function (data) {
+          console.log(data)
+          this.material.update();
+        }
+      });
+    </script>
+</head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <!-- <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+        <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg"> -->
+        <video id="chase1" src="chase-green1.mp4" loop autoplay />
+      </a-assets>
+
+      <!-- Primitives. -->
+      <a-entity geometry="primitive: box" material="url: chase-green1.mp4; shader: chromaKeyMaterial;" position="0 1.5 -2" rotation="0 45 0"></a-entity>
+
+      <a-entity geometry="primitive: box" material="src: #chase1;" position="1 1.5 -2" rotation="0 45 0"></a-entity>
+      <a-entity geometry="primitive: box" material="src: #chase1;" position="-1 1.5 -2" rotation="0 45 0"></a-entity>
+
+      <!-- Background sky. -->
+      <a-sky height="2048" radius="30" color="pink" theta-length="90" width="2048"></a-sky>
+
+      <!-- Ground. -->
+      <a-circle color="white" rotation="-90 0 0" radius="32"></a-circle>
+
+    </a-scene>
+  </body>
+</html>
