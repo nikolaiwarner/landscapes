@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>landscape-0 by nickwarner</title>
+    <meta name="description" content="landscape-0">
+    <script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
+    <!-- <script src="https://unpkg.com/aframe-physics-system@^1.2.x/dist/aframe-physics-system.min.js" data-angle="aframe-physics-system"></script> -->
+</head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <!-- <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+        <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg"> -->
+      </a-assets>
+
+      <!-- Primitives. -->
+      <a-box position="0 1.5 -2" rotation="0 45 0" color="black"></a-box>
+
+      <!-- Background sky. -->
+      <a-sky height="2048" radius="30" color="pink" theta-length="90" width="2048"></a-sky>
+
+      <!-- Ground. -->
+      <a-circle color="white" rotation="-90 0 0" radius="32"></a-circle>
+
+    </a-scene>
+  </body>
+</html>
