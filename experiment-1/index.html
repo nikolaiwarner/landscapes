@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>experiment-1 by nickwarner</title>
+    <meta name="description" content="experiment-1">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
+
+    <script>
+      function playVideos() {
+        document.querySelectorAll('video').forEach(function(video) {video.play()})
+      }
+    </script>
+
+    <style>
+      body {
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      a-scene {
+      }
+    </style>
+
+  </head>
+  <body onclick="playVideos()">
+    <a-scene style="width: 400px; height: 400px" embedded>
+      <!-- vr-mode-ui="enabled: false"  -->
+      <a-assets>
+        <video id="character1" class="video" src="∆1_1.mp4" loop autoplay=false />
+        <video id="videotexture1" class="video" src="Untitled-23.mp4" loop autoplay=false />
+        <img id="texture1" class="image" src="dinosaurs__1.jpg" />
+      </a-assets>
+
+      <!-- Primitives. -->
+      <a-sky height="2048" radius="30" material="shader:flat; src: #videotexture1;" theta-length="90" width="2048" rotation="-40 -40 0"></a-sky>
+
+      <a-entity geometry="primitive: box" material="shader: chromakey; src: #character1; color: 0.0 0.9 0.1" scale="2 3.6 0" position="0 1.5 -2" rotation="0 0 0"></a-entity>
+      <a-entity geometry="primitive: box" material="src: #character1;" scale="0.001 0.001 0.001" position="0 1.5 -2" rotation="0 45 0"></a-entity>
+
+      <a-entity camera look-controls position="0 1.7 -0.94" rotation="5.39 -13.06 0">
+        <a-animation attribute="position"
+          direction="alternate"
+          dur="10000"
+          fill="forwards"
+          from="0 1.7 0"
+          to="0 0 1000"
+          delay="4000"
+          repeat="indefinite"></a-animation>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
